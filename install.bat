@@ -9,7 +9,7 @@ if not exist "%APPDATA%\Code\User\snippets" (
 
 REM Download the python.json file directly to VS Code snippets folder
 echo Downloading snippets...
-powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/gulshanMiantic08/driver-snippets-simple/main/python.json' -OutFile '%APPDATA%\Code\User\snippets\python.json'"
+powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/gulshanMiantic08/drivertemplate/main/python.json' -OutFile '%APPDATA%\Code\User\snippets\python.json'"
 
 echo.
 echo ✅ Installation Successful!
