@@ -1,22 +1,43 @@
 @echo off
-echo Installing Driver Snippets...
+echo ========================================
+echo    Driver Snippets Installer
+echo ========================================
 echo.
 
 REM Create snippets folder if it doesn't exist
 if not exist "%APPDATA%\Code\User\snippets" (
+    echo Creating snippets folder...
     mkdir "%APPDATA%\Code\User\snippets"
 )
 
-REM Download the python.json file directly to VS Code snippets folder
-echo Downloading snippets...
-powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/gulshanMiantic08/drivertemplate/main/python.json' -OutFile '%APPDATA%\Code\User\snippets\python.json'"
+REM Download python.json
+echo.
+echo [1/2] Downloading Python snippets...
+curl -o "%APPDATA%\Code\User\snippets\python.json" https://raw.githubusercontent.com/gulshanMiantic08/drivertemplate/main/python.json
+if %errorlevel% equ 0 (
+    echo ✅ Python snippets installed successfully!
+) else (
+    echo ❌ Failed to download Python snippets!
+)
+
+REM Download javascript.json
+echo.
+echo [2/2] Downloading JavaScript snippets...
+curl -o "%APPDATA%\Code\User\snippets\javascript.json" https://raw.githubusercontent.com/gulshanMiantic08/drivertemplate/main/javascript.json
+if %errorlevel% equ 0 (
+    echo ✅ JavaScript snippets installed successfully!
+) else (
+    echo ❌ Failed to download JavaScript snippets!
+)
 
 echo.
-echo ✅ Installation Successful!
+echo ========================================
+echo    ✅ Installation Complete!
+echo ========================================
 echo.
-echo 📝 Next steps:
-echo 1. Open VS Code
-echo 2. Create a .py file
-echo 3. Type "drivertemplate" and press Tab
+echo 📝 How to use:
+echo   1. Restart VS Code
+echo   2. Python: Create .py file → Type "drivertemplate" → Press Tab
+echo   3. JavaScript: Create .js file → Type "defcom" → Press Tab
 echo.
 pause

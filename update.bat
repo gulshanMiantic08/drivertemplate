@@ -2,11 +2,14 @@
 echo Updating Driver Snippets...
 echo.
 
-echo Downloading latest snippets...
-powershell -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/gulshanMiantic08/drivertemplate/main/python.json' -OutFile '%APPDATA%\Code\User\snippets\python.json'"
+echo Updating Python snippets...
+curl -o "%APPDATA%\Code\User\snippets\python.json" https://raw.githubusercontent.com/gulshanMiantic08/drivertemplate/main/python.json
+
+echo Updating JavaScript snippets...
+curl -o "%APPDATA%\Code\User\snippets\javascript.json" https://raw.githubusercontent.com/gulshanMiantic08/drivertemplate/main/javascript.json
 
 echo.
 echo ✅ Update Complete!
-echo Your snippets are now up to date!
+echo Please restart VS Code to use the latest snippets.
 echo.
 pause
